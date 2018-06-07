@@ -1,0 +1,18 @@
+@charset 'UTF-8';
+
+.parent {
+    display: table;
+/*    width: 100%;*/
+    width: 50%;
+    border: 2px solid red;
+    border-collapse: separate;
+    border-spacing: 55px 55px ;
+    margin: 30px;
+/*    padding: 10px;*/
+}
+.child {
+    display: table-cell;
+    border: 7px solid yellow;
+/*    margin: 0px;*/
+    padding: 44px;
+}
