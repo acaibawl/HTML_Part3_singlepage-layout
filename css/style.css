@@ -75,18 +75,44 @@ body {
     font-size: 4rem;
     letter-spacing: 2px;
 }
+
+/*#############見出しをひし形ではさむ##########*/
 .heading::before,
 .heading::after {
     content: '';
+    display:inline-block;
+    margin:0 20px;
+    width: 12px;
+    height: 12px;
+    vertical-align:8px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+/*
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
-    border-bottom: 1px solid #999;
+*/
+    border: 1px solid;
 }
+@media(max-width: 768px) {
+    .heading::before,
+    .heading::after {
+        width: 8px;
+        height: 8px;
+        margin: 0 12px;
+        vertical-align: 5px;
+    }
+}
+
+
+
+/*
 .heading::before {
     bottom: 5px;
 }
+*/
 .about-text {
     margin: 30px 0;
     line-height: 2.5;
@@ -105,12 +131,36 @@ body {
 .work-box {
     position: relative;
     display: table-cell;
+    overflow:hidden;
 }
 .work-image {
     display: block;
     width: 100%;
     margin:0 0 60%;
+    
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
+
+/*########マウスオーバーした時に画像をズームインする#######*/
+.work-box:hover .work-image {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+/*    z-index: -500;*/
+}
+.work-box:nth-of-type(odd) .work-image {
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+}
+.work-box:nth-of-type(even) .work-image {
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+}
+
+
+/*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
+
 .work-description {
     position: absolute;
     top: 50%;
